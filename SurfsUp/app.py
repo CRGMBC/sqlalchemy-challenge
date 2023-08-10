@@ -1,14 +1,17 @@
 #import
 import numpy as np
 import datetime as dt
+
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
+
 from flask import Flask, jsonify
 
 # create engine to hawaii.sqlite
 engine = create_engine("sqlite:///Resources/hawaii.sqlite")
+
 # reflect an existing database into a new model
 Base = automap_base()
 # reflect the tables
@@ -24,15 +27,15 @@ app = Flask(__name__)
 
 # Define Home Page & list all available routes
 @app.route("/")
-def home():
+def welcome():
     """List all available api routes."""
     return (
         f"Available Routes:<br/>"
-        f"/api/v1.0/precipitation<br/>"
-        f"/api/v1.0/stations<br/>"
-        f"/api/v1.0/tobs<br/>"
-        f"/api/v1.0/<start><br/>"
-        f"/api/v1.0/<start>/<end>"
+        f"/api/v1.0/precipitation<br/>Dictionary by date of precipitation<br/>"
+        f"/api/v1.0/stations<br/>A list of stations<br/>"
+        f"/api/v1.0/tobs<br/>Temperature observations for the previous year<br/>"
+        f"/api/v1.0/<start><br/>Min, Average & Max temperature observations >= 23 Aug 2016<br/>"
+        f"/api/v1.0/<start>/<end>Min,Average & Max temperature observations between 23 Aug 2016 and 23 Aug 2017 inclusive"
     )
 
 @app.route("/api/v1.0/precipitation")
@@ -141,4 +144,6 @@ def StartEndDate(start_date,end_date):
     # Return a JSON list of start & end date data from the dataset
     return jsonify(startend_list)
 
+if __name__ == '__main__':
+    app.run(debug=True)
 
