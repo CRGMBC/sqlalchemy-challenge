@@ -1,25 +1,25 @@
 # sqlalchemy-challenge
 Module 10 Challenge
 
-This challenge is a climate analysis about Honolulu, Hawaii.  I have been provided csv files with data to analyse
+This challenge is a climate analysis about Honolulu, Hawaii.  2 csv files have been provided with data to analyse.
 
-Using sqlalchemy, created a relational map across the 2 csv files provided.
+Using SQLAlchemy, connected to a SQLite database and reflected the 2 tables into classes, and saved the references to the classes named station and measurement.
 
-We only wanted to look at the last 12 months precitpitation data so calculated the 12 month window using the measurement date and copied this into a new datafram called precipitaiton_df.
+We only wanted to look at the last 12 months precitpitation data so calculated the 12 month window using the measurement date and copied this into a new dataframe called precipitation_df.
 
-I was then able to create a bar graph.
+A bar graph was generated.
 Along with the bar graph, there are summary statistics proivded for revision.
 
 
 Some analysis of weather stations was also done.  
-A count of how many times a weather station has provided measurement data, and then for the station with highest number of active uses, a lower level investgaion of the lowest, highest and average temperature was calculated. 
+A count of how many times a weather station has provided measurement data, and then for the station with highest number of active uses, a lower level investgation of the lowest, highest and average temperature was calculated. 
 
 A histogram was created to display the temperature range and the frequency of each.
-
 
 After the first analysis completed and the 2 graphs created, a new Flask API app was used.
 
 The following routes were created and data queried:
+
 1./
 •create the homepage and list all the routes
 
